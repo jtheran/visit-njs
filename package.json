@@ -1,0 +1,44 @@
+{
+  "name": "visit-njs",
+  "version": "1.0.0",
+  "description": "software para gestionar a los visitantes/nuevos de la iglesia nueva jerusalen sede santa maria.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "prisma:on": "prisma init",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtheran/visit-njs.git"
+  },
+  "keywords": [
+    "nodejs",
+    "prisma",
+    "sqlite",
+    "socket.io",
+    "redis",
+    "jwt"
+  ],
+  "author": "JMTB",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jtheran/visit-njs/issues"
+  },
+  "homepage": "https://github.com/jtheran/visit-njs#readme",
+  "dependencies": {
+    "@prisma/client": "^5.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "prisma": "^5.2.0",
+    "redis": "^4.6.8",
+    "socket.io": "^4.7.2",
+    "sqlite": "^5.0.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1"
+  }
+}
