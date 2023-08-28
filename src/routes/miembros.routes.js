@@ -1,22 +1,13 @@
 import { Router } from "express";
-import { getMember, getMembers, postMember, updateMember, deleteMember } from "../controller/miembros.js"
+import { getMember, getMembers, postMember, updateMember, deleteMember } from "../controllers/miembros.js"
 
 const router = Router();
 
-router.get('/member' , (req, res) => {
-    const getAll = getMembers(req, res);
-    return getAll;
-});
+router.get('/member' , getMembers);
 
-router.get('/member/:id' , (req,res) => {
-    const get = getMember(req, res);
-    return get;
-});
+router.get('/member/:id' , getMember);
 
-router.post('/member' , (req,res) => {
-    const post = postMember(req, res);
-    return post;
-});
+router.post('/member' , postMember);
 
 router.put('/member/:id' , (req,res) => {
     const update = updateMember(req, res);

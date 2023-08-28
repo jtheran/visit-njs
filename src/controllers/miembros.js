@@ -37,6 +37,8 @@ const getMembers = async(req, res) => {
 
 const postMember = async(req, res) => {
     let body = req.body;
+    const pass = req.body.password;
+    const passHash = await bcrypt.hash(pass, 10);
     try {
         const resp = await prisma.miembro.create({
             data:{
@@ -51,6 +53,7 @@ const postMember = async(req, res) => {
                 lider: body.lider,
                 fechaNacimiento: body.fechaNacimiento,
                 sexo: body.sexo,
+                pasword: body.password, 
                 cargo: body.cargo,
                 trabajo: body.trabajo
             }    
@@ -58,6 +61,8 @@ const postMember = async(req, res) => {
         if(!resp){
             return res.status(400).json({ message: "NO SE PUDO CREAR AL MIEMBRO"});
         }
+        const token = await createToken(pass);
+        res.cookie('token', token);
         return res.status(200).json(resp);
     
     } catch (error) {
